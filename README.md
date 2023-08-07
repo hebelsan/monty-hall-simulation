@@ -5,5 +5,5 @@ https://en.wikipedia.org/wiki/Monty_Hall_problem
 
 ## How to run
 ```
-cargo run -- --number 100
+cargo run -- --rounds 100
 ```
