@@ -1,30 +1,16 @@
-use std::env;
 use rand::Rng;
+use clap::Parser;
+
+#[derive(Parser)]
+struct Cli {
+    #[arg(short = 'n', long = "number")]
+    number: i32,
+}
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let args = Cli::parse();
 
-    match args.len() {
-        // one argument passed
-        2 => {
-            let num = &args[1];
-            // parse the number
-            match num.parse::<i32>() {
-                Ok(n) => {
-                    simulate(n)
-                },
-                Err(_) => {
-                    eprintln!("error: argument not an integer");
-                    help();
-                    return;
-                },
-            };
-        },
-        _ => {
-            eprintln!("error: incorrect number of arguments");
-            help();
-        }
-    }
+    simulate(args.number)
 }
 
 fn simulate(times:i32) {
@@ -41,8 +27,4 @@ fn simulate(times:i32) {
         }
     }
     println!("wins: {} games: {} rate: {}%", wins, times, (wins as f32 /times as f32) * 100.0);
-}
-
-fn help() {
-    println!("usage: cargo run <number_of_simulation_rounds>");
 }

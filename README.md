@@ -5,5 +5,5 @@ https://en.wikipedia.org/wiki/Monty_Hall_problem
 
 ## Installation
 ```
-cargo run <number_of_simulation_rounds>
+cargo run -- --number 100
 ```
