@@ -1,5 +1,5 @@
 [package]
-name = "monty_hall_simulation"
+name = "montyrs"
 version = "0.1.0"
 edition = "2021"
 
