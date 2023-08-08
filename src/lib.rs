@@ -36,18 +36,23 @@ fn simulate_single_round() -> i32 {
     }
 }
 
-#[test]
-fn simulate_10000_sequential() {
-    let rounds = 10000;
-    let wins = simulate_sequential(rounds);
-    let win_rate = (wins as f32 / rounds as f32) * 100.0;
-    assert!(win_rate > 60.);
-}
+#[cfg(test)]
+mod tests {
+    use crate::*;
 
-#[test]
-fn simulate_10000_parralel() {
-    let rounds = 10000;
-    let wins = simulate_parallel(rounds);
-    let win_rate = (wins as f32 / rounds as f32) * 100.0;
-    assert!(win_rate > 60.);
+    #[test]
+    fn simulate_10000_sequential() {
+        let rounds = 10000;
+        let wins = simulate_sequential(rounds);
+        let win_rate = (wins as f32 / rounds as f32) * 100.0;
+        assert!(win_rate > 60.);
+    }
+    
+    #[test]
+    fn simulate_10000_parralel() {
+        let rounds = 10000;
+        let wins = simulate_parallel(rounds);
+        let win_rate = (wins as f32 / rounds as f32) * 100.0;
+        assert!(win_rate > 60.);
+    }
 }
