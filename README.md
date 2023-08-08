@@ -7,3 +7,13 @@ https://en.wikipedia.org/wiki/Monty_Hall_problem
 ```
 cargo run -- --rounds 10000
 ```
+
+## Tests
+```
+cargo test
+```
+
+## Benchmark
+```
+cargo bench
+```
